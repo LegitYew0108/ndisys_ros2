@@ -47,12 +47,39 @@ def launch_setup(context, *args, **kwargs):
         package="controller_manager",
         executable="ros2_control_node",
         emulate_tty=True,
-        parameters=[polaris_description, polaris_controller_config],
+        parameters=[polaris_controller_config],
         output={"screen"},
+        remappings=[
+            ("~/robot_description", "/robot_description"),
+        ],
+    )
+
+    robot_state_publisher = Node(
+        package='robot_state_publisher',
+        executable='robot_state_publisher',
+        output='screen',
+        parameters=[polaris_description]
+    )
+
+    rigid_pose_broadcaster_spawn = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["rigid_pose_broadcaster"],
+        name="rigid_pose_broadcaster_spawn",
+    )
+
+    joint_state_broadcaster_spawn = Node(
+        package="controller_manager",
+        executable="spawner",
+        arguments=["joint_state_broadcaster"],
+        name="joint_state_broadcaster_spawn",
     )
 
     nodes_to_start = [
         polaris_control_node,
+        robot_state_publisher,
+        rigid_pose_broadcaster_spawn,
+        joint_state_broadcaster_spawn
     ]
 
     return nodes_to_start

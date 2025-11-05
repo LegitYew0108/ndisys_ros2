@@ -9,14 +9,12 @@
 
       <hardware>
         <plugin>ndi_hardware/NdiSensorHardwareInterface</plugin>
-        <param name="ndi_ip">192.155.1.80</param>
+        <param name="ndi_ip">169.254.1.10</param>
       </hardware>
 
       <!-- repeat this part for multiple trackers -->
-      <xacro:tracker name="fus_tracker"
-        srom="/home/adnan/Desktop/ros2/ndisys_ros2/polaris_description/srom/UfoGuideTransducer.rom" />
-      <xacro:tracker name="needle"
-        srom="/home/adnan/Desktop/ros2/ndisys_ros2/polaris_description/srom/8700340.rom" />
+      <xacro:tracker name="brainlab_reference1"
+        srom="$(find polaris_description)/srom/BrainLabReference1.rom" />
 
     </ros2_control>
 

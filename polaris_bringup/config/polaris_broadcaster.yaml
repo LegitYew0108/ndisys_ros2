@@ -14,10 +14,8 @@ rigid_pose_broadcaster:
   ros__parameters:
     state_publish_rate: 10
     sensor_names:
-      - fus_tracker
-      - needle
+      - brainlab_reference1
     sensor_ids:
-      - 1998
       - 2023
     world_frame: polaris_frame
 

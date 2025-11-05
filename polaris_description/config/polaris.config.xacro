@@ -3,7 +3,7 @@
 
     <!-- Import polaris ros2_control description -->
     <xacro:include filename="$(find polaris_description)/ros2_control/polaris.ros2_control.xacro" />
-
+		<link name="polaris_frame"/>
     <xacro:ndi_sensor name="polaris"/>
 
 </robot>
