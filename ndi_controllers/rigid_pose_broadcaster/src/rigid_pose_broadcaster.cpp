@@ -133,6 +133,7 @@ RigidPoseBroadcaster::update(const rclcpp::Time & time, const rclcpp::Duration &
   {
     realtime_rigid_pose_publisher_->msg_.poses.clear();
     realtime_rigid_pose_publisher_->msg_.ids.clear();
+		realtime_rigid_pose_publisher_->msg_.frames.clear();
     realtime_rigid_pose_publisher_->msg_.inbound.clear();
 
     auto & rigidPoseMsg = realtime_rigid_pose_publisher_->msg_;
